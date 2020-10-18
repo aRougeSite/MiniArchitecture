@@ -151,7 +151,7 @@ function drawPlot(y_array) {
     },
     yaxis: {
       title: {
-        text: 'GDP',
+        text: 'GDP(USD)',
         font: {
           family: 'Arial',
           size: 18,
