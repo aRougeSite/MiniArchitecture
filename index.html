@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 3em;
+      }
+      #select_label {
+        left: 0em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 0.7rem;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #888;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #000;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Viz</title>
+  </head>
+
+  <body>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize.min.js"></script>
+
+    <script type="text/javascript" src="index.js"></script>
+
+    <div class="input-field col s12">
+      <select
+        id="cephas_drop_down"
+        required
+        class="validate"
+        onselect="changeOption()"
+      >
+        <option value="" disabled selected>Choose your option</option>
+
+        <option value="sid the sloth">Aruba</option>
+        <option value="diego">Afghanistan</option>
+        <option value="">Angola</option>
+        <option value="">Albania</option>
+        <option value="">Andorra</option>
+        <option value="">United Arab Emirates</option>
+        <option value="">Argentina</option>
+        <option value="">Armenia</option>
+        <option value="">American Samoa</option>
+        <option value="">Antigua and Barbuda</option>
+        <option value="">Australia</option>
+        <option value="">Azerbaijan</option>
+        <option value="">Burundi</option>
+        <option value="">Belgium</option>
+        <option value="">Benin</option>
+        <option value="">Burkina Faso</option>
+        <option value="">Bosnia and Herzegovina</option>
+        <option value="">Bulgaria</option>
+        <option value="">Bahrain</option>
+        <option value="">Belarus</option>
+        <option value="">Belize</option>
+        <option value="">Bermuda</option>
+        <option value="">Bolivia</option>
+        <option value="">Brazil</option>
+        <option value="">Barbados</option>
+        <option value="">Bhutan</option>
+        <option value="">Botswana</option>
+        <option value="">Central African Republic</option>
+        <option value="">Canada</option>
+        <option value="">Central Europe and the Baltics</option>
+        <option value="">Switzerland</option>
+        <option value="">Channel Islands</option>
+        <option value="">Chile</option>
+        <option value="">China</option>
+        <option value="">Cameroon</option>
+        <option value="">Congo, Rep</option>
+        <option value="">Colombia</option>
+        <option value="">Comoros</option>
+        <option value="">Cabo Verde</option>
+        <option value="">Costa Rica</option>
+        <option value="">Caribbean small states</option>
+        <option value="">Cuba</option>
+        <option value="">Curacao</option>
+        <option value="">Cayman Islands</option>
+        <option value="">Cyprus</option>
+        <option value="">Czech Republic</option>
+        <option value="">Germany</option>
+        <option value="">Djibouti</option>
+        <option value="">Dominica</option>
+        <option value="">Dominican Republic</option>
+        <option value="">Algeria</option>
+        <option value="">East Asia & Pacific (excluding high income)</option>
+        <option value="">Europe & Central Asia (excluding high income)</option>
+        <option value="">Ecuador</option>
+        <option value="">Egypt, Arab Rep.</option>
+        <option value="">Euro area</option>
+        <option value="">Eritrea</option>
+        <option value="">Spain</option>
+        <option value="">Estonia</option>
+        <option value="">Ethiopia</option>
+        <option value="">European Union</option>
+        <option value="">Finland</option>
+        <option value="">Fiji</option>
+        <option value="">France</option>
+        <option value="">Faroe Islands</option>
+        <option value="">Gabon</option>
+        <option value="">United Kingdom</option>
+        <option value="">Georgia</option>
+        <option value="">Ghana</option>
+        <option value="">Gibraltar</option>
+        <option value="">Guinea</option>
+        <option value="">Gambia, The</option>
+        <option value="">Guinea-Bissau</option>
+        <option value="">Equatorial Guinea</option>
+        <option value="">Greece</option>
+        <option value="">Grenada</option>
+        <option value="">Greenland</option>
+        <option value="">Guatemala</option>
+        <option value="">Guam</option>
+        <option value="">Hong Kong SAR, China</option>
+        <option value="">Honduras</option>
+        <option value="">Croatia</option>
+        <option value="">Haiti</option>
+        <option value="">Hungary</option>
+        <option value="">Indonesia</option>
+        <option value="">Isle of Man</option>
+        <option value="">India</option>
+        <option value="">Ireland</option>
+        <option value="">Iraq</option>
+        <option value="">Iceland</option>
+        <option value="">Israel</option>
+        <option value="">Italy</option>
+        <option value="">Jordan</option>
+        <option value="">Kazakhstan</option>
+        <option value="">Cambodia</option>
+        <option value="">Kiribati</option>
+        <option value="">Kuwait</option>
+        <option value="">
+          Latin America & Caribbean (excluding high income)
+        </option>
+        <option value="">Lebanon</option>
+        <option value="">Liberia</option>
+        <option value="">Libya</option>
+        <option value="">Latin America & Caribbean</option>
+        <option value="">Liechtenstein</option>
+        <option value="">Sri Lanka</option>
+        <option value="">Lesotho</option>
+        <option value="">Lithuania</option>
+        <option value="">Latvia</option>
+        <option value="">Morocco</option>
+        <option value="">Monaco</option>
+        <option value="">Moldova</option>
+        <option value="">Madagascar</option>
+        <option value="">Maldives</option>
+        <option value="">Middle East & North Africa</option>
+        <option value="">Mexico</option>
+        <option value="">Marshall Islands</option>
+        <option value="">North Macedonia</option>
+        <option value="">Mali</option>
+        <option value="">Malta</option>
+        <option value="">Myanmar</option>
+        <option value="">
+          Middle East & North Africa (excluding high income)
+        </option>
+        <option value="">Montenegro</option>
+        <option value="">Mongolia</option>
+        <option value="">Mozambique</option>
+        <option value="">Mauritania</option>
+        <option value="">Mauritius</option>
+        <option value="">Malawi</option>
+        <option value="">Malaysia</option>
+        <option value="">North America</option>
+        <option value="">Namibia</option>
+        <option value="">New Caledonia</option>
+        <option value="">Niger</option>
+        <option value="">Nigeria</option>
+        <option value="">Nicaragua</option>
+        <option value="">Netherlands</option>
+        <option value="">Norway</option>
+        <option value="">Nepal</option>
+        <option value="">Nauru</option>
+        <option value="">New Zealand</option>
+        <option value="">OECD members</option>
+        <option value="">Oman</option>
+        <option value="">Pakistan</option>
+        <option value="">Panama</option>
+        <option value="">Peru</option>
+        <option value="">Philippines</option>
+        <option value="">Palau</option>
+        <option value="">Poland</option>
+        <option value="">Puerto Rico</option>
+        <option value="">Portugal</option>
+        <option value="">Paraguay</option>
+        <option value="">Qatar</option>
+        <option value="">Romania</option>
+        <option value="">Rwanda</option>
+        <option value="">South Asia</option>
+        <option value="">Saudi Arabia</option>
+        <option value="">Sudan</option>
+        <option value="">Senegal</option>
+        <option value="">Singapore</option>
+        <option value="">Sierra Leone</option>
+        <option value="">El Salvador</option>
+        <option value="">San Marino</option>
+        <option value="">Somalia</option>
+        <option value="">Serbia</option>
+        <option value="">South Sudan</option>
+        <option value="">Suriname</option>
+        <option value="">Slovak Republic</option>
+        <option value="">Slovenia</option>
+        <option value="">Sweden</option>
+        <option value="">Eswatini</option>
+        <option value="">Seychelles</option>
+        <option value="">Togo</option>
+        <option value="">Thailand</option>
+        <option value="">Tajikistan</option>
+        <option value="">Turkmenistan</option>
+        <option value="">Trinidad and Tobago</option>
+        <option value="">Tunisia</option>
+        <option value="">Turkey</option>
+        <option value="">Tuvalu</option>
+        <option value="">Tanzania</option>
+        <option value="">Uganda</option>
+        <option value="">Ukraine</option>
+        <option value="">Uruguay</option>
+        <option value="">United States</option>
+        <option value="">Uzbekistan</option>
+        <option value="">Venezuela, RB</option>
+        <option value="">British Virgin Islands</option>
+        <option value="">Vietnam</option>
+        <option value="">Vanuatu</option>
+        <option value="">Samoa</option>
+        <option value="">Kosovo</option>
+        <option value="">South Africa</option>
+        <option value="">Zimbabwe</option>
+        <option value="">World</option>
+      </select>
+      <label id="select_label">Select country</label>
+    </div>
+
+    <a
+      id="get_data"
+      class="waves-effect waves-light btn-large"
+      onclick="getData();"
+      type="submit"
+      >LET'S GO!</a
+    >
+
+    <div id="myDiv" style="width: 100%"></div>
+  </body>
+</html>
