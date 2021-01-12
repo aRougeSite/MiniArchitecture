@@ -72,6 +72,7 @@ var elem = document.querySelectorAll('select');
 document.addEventListener('DOMContentLoaded', function () {
   elem = document.querySelector('select');
   var instances = M.FormSelect.init(elem);
+  $("#loading_indicator").hide();
 });
 
 function getData() {
@@ -80,6 +81,7 @@ function getData() {
   //   console.log(selected_country);
 
   if (selected_country !== 'Choose your option') {
+    $("#loading_indicator").show();
     axios
       .get(`https://cephasapi.azurewebsites.net/country/${selected_country}`)
       .then((res) => {
