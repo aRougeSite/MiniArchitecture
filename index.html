@@ -25,6 +25,14 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #555;
       }
+      
+      .center {
+      margin: auto;
+      width: 94%;
+      position: absolute;
+      padding-top: 10rem;
+      padding-right: 2rem;
+    }
     </style>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -270,6 +278,22 @@
       type="submit"
       >LET'S GO!</a
     >
+    
+    <div id="loading_indicator" class="center">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-teal-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div id="myDiv" style="width: 100%"></div>
   </body>
